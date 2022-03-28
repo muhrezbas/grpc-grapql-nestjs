@@ -1,0 +1,5 @@
+export const ERROR_CODE = {
+  PIN_CHECK_FAILED: '1052',
+  DUPLICATE_DATA: '1067',
+  INVALID_DATA: '1043',
+};

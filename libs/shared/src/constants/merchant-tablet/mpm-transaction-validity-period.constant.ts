@@ -1,0 +1,5 @@
+export const MPMTransactionValidityPeriod = {
+  OPEN_BILL_TRANSACTION: 15,
+  NORMAL_TRANSACTION: 5,
+  ONLINE_ORDER_TRANSACTION: 30,
+};

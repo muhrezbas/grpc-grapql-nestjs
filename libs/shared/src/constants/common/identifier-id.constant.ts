@@ -1,0 +1,5 @@
+export const IDENTIFIER_ID = {
+  SIGNATURE: 10,
+  IDENTITY_CARD: 18,
+  SELFIE_IDENTITY_CARD: 6,
+};

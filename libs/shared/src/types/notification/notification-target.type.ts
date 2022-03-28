@@ -1,0 +1,4 @@
+export enum NotificationTargetType {
+  TABLET_FIREBASE = 'TABLET_FIREBASE',
+  LOYALTY_FIREBASE = 'LOYALTY_FIREBASE',
+}

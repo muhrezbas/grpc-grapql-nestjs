@@ -1,0 +1,7 @@
+export enum CouponStatusType {
+  REDEEMED = 'REDEEMED',
+  ASSIGNED = 'ASSIGNED',
+  EXPIRED = 'EXPIRED',
+  DEACTIVATED = 'DEACTIVATED',
+  ACTIVE = 'ACTIVE',
+}
