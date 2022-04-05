@@ -1,6 +1,6 @@
 import { from } from 'env-var';
 import { config } from 'dotenv';
-config({ path: 'apps/first-api/.env' });
+config({ path: 'apps/second-api/.env' });
 
 export class ConfigService {
   private env = from(process.env);

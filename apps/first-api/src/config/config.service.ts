@@ -28,6 +28,16 @@ export class ConfigService {
     .required()
     .asIntPositive();
 
+  public readonly THROTTLE_TTL = this.env
+    .get('THROTTLE_TTL')
+    .required()
+    .asInt();
+
+  public readonly THROTTLE_LIMIT = this.env
+    .get('THROTTLE_LIMIT')
+    .required()
+    .asInt(); 
+
 
   public readonly REDIS_HOST = this.env.get('REDIS_HOST').required().asString();
   public readonly REDIS_PORT = this.env.get('REDIS_PORT').required().asString();

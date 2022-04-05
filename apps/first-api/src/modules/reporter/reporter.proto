@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package reporter;
+
+service ReporterService {
+  rpc GetReporter(EmptyReporterInput) returns (ReporterList);
+}
+
+message GetReporterInput {
+  string id = 1;
+}
+message EmptyReporterInput {}
+
+
+message IReporter {
+  string id = 1;
+  string name = 2;
+  int32 topicId = 3;
+  string asal = 4;
+}
+
+message ReporterList {
+  repeated IReporter Reporters = 1;
+}

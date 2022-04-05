@@ -54,6 +54,22 @@ type NewsResponse {
   data: [News!]!
 }
 
+type ReporterResponse {
+  id: String!
+  name: String!
+  asal: String!
+  topicId: Float!
+}
+
+type GetReporterResponse {
+  reporters: [ReporterResponse!]
+}
+
 type Query {
   listNews: NewsResponse!
+  getReporter(getReporterInput: GetReporterInput!): GetReporterResponse!
+}
+
+input GetReporterInput {
+  topicId: Float!
 }

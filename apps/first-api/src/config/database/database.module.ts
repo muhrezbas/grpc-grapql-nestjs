@@ -2,12 +2,13 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigService } from '../config.service';
 import {
-  News
+  News, Reporter
 } from 'lib/model/entities';
 import { ConfigModule } from '../config.module';
 // import { NODE_ENVIRONMENT } from 'lib/shared/constants';
 const entities = [
-  News
+  News,
+  Reporter
 ];
 
 @Module({
