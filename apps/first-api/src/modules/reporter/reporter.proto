@@ -4,11 +4,28 @@ package reporter;
 
 service ReporterService {
   rpc GetReporter(EmptyReporterInput) returns (ReporterList);
+  rpc CreateReporter(CreateReporterInput) returns (ReporterOne);
+  rpc GetReporterByID(GetReporterInput) returns (ReporterOne);
+  rpc EditReporter(EditReporterInput) returns (ReporterOne);
 }
 
 message GetReporterInput {
   string id = 1;
 }
+
+message CreateReporterInput {
+  string name = 1;
+  int32 topicId = 2;
+  string asal = 3;
+}
+
+message EditReporterInput {
+  string id = 1;
+  string name = 2;
+  int32 topicId = 3;
+  string asal = 4;
+}
+
 message EmptyReporterInput {}
 
 
@@ -17,6 +34,10 @@ message IReporter {
   string name = 2;
   int32 topicId = 3;
   string asal = 4;
+}
+
+message ReporterOne {
+  IReporter Reporter = 1;
 }
 
 message ReporterList {

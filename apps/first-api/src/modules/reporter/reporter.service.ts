@@ -2,6 +2,9 @@ import { Inject, Injectable, Logger } from '@nestjs/common';
 // import { GetPricingInterface } from '../shipper/interfaces/get-price-reporter.interface';
 // import { ShipperService } from '../shipper/shipper.service';
 import { GetReporterInput } from './dto/get-reporter.input';
+import { GetReporterSingleInput } from './dto/get-reporter-single.input'
+import { EditReporterInput} from './dto/edit-reporter.input'
+import { CreateReporterInput } from './dto/create-reporter.input'
 import { ReporterInterface } from './interfaces/reporter.interface';
 import { ClientGrpc } from '@nestjs/microservices';
 import { GrpcClient } from 'lib/shared/helpers';
@@ -56,4 +59,64 @@ export class ReporterService extends GrpcClient {
       );
     }
   }
+  async getReporterByID(
+    getReporterSingleInput: GetReporterSingleInput
+  ): Promise<ReporterResponse> {
+    try {
+      const {Reporter}  = await this.reporterInterface
+        .getReporterByID(getReporterSingleInput ,this.metadata)
+        .toPromise();
+        console.log(Reporter, "nanan yah")
+        return Reporter;
+    }
+    catch (err) {
+      Logger.error(err.message, err.stack, '[ReporterService][getReporter]');
+      throw new ApolloError(
+        'Gagal medapatkan data Reporter.',
+        'INTERNAL_SERVER_ERROR',
+      );
+    }
+  }
+    async editReporter(
+      editReporterInput: EditReporterInput
+    ): Promise<ReporterResponse> {
+      try {
+        const {Reporter}  = await this.reporterInterface
+          .editReporter(editReporterInput ,this.metadata)
+          .toPromise();
+          console.log(Reporter, "nanan yah")
+          return Reporter;
+      }
+      catch (err) {
+        Logger.error(err.message, err.stack, '[ReporterService][getReporter]');
+        throw new ApolloError(
+          'Gagal medapatkan data Reporter.',
+          'INTERNAL_SERVER_ERROR',
+        );
+      }
+    }
+
+    async createReporter(
+      createReporterInput: CreateReporterInput
+    ): Promise<ReporterResponse> {
+      try {
+        const {Reporter}  = await this.reporterInterface
+          .createReporter(createReporterInput ,this.metadata)
+          .toPromise();
+          console.log(Reporter, "nanan yah")
+          return Reporter;
+      }
+      catch (err) {
+        Logger.error(err.message, err.stack, '[ReporterService][getReporter]');
+        throw new ApolloError(
+          'Gagal medapatkan data Reporter.',
+          'INTERNAL_SERVER_ERROR',
+        );
+      }
+    }
+
+      
+
+    
+    
 }

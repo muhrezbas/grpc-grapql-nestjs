@@ -65,11 +65,35 @@ type GetReporterResponse {
   reporters: [ReporterResponse!]
 }
 
+type GetReporterSingleResponse {
+  reporter: ReporterResponse
+}
+
 type Query {
   listNews: NewsResponse!
   getReporter(getReporterInput: GetReporterInput!): GetReporterResponse!
+  getReporterByID(getReporterSingleInput: GetReporterSingleInput!): GetReporterSingleResponse!
+  editReporter(editReporterInput: EditReporterInput!): GetReporterSingleResponse!
+  createReporter(createReporterInput: CreateReporterInput!): GetReporterSingleResponse!
 }
 
 input GetReporterInput {
   topicId: Float!
+}
+
+input GetReporterSingleInput {
+  id: String!
+}
+
+input EditReporterInput {
+  id: String!
+  topicId: Float!
+  asal: String!
+  name: String!
+}
+
+input CreateReporterInput {
+  topicId: Float!
+  asal: String!
+  name: String!
 }
